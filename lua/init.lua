@@ -17,9 +17,10 @@ function M.open_today()
     vim.api.nvim_command('edit ' .. file)
 end
 
+
 function M.list_past()
     local dir = vim.fn.expand('~/writing/')
-    require 'telescope.builtin'.find_files({
+    require'telescope.builtin'.find_files({
         prompt_title = '< Past Writings >',
         cwd = dir,
         layout_strategy = 'horizontal',
@@ -28,6 +29,7 @@ function M.list_past()
         },
     })
 end
+
 
 function M.git_sync()
     -- Store the current working directory
@@ -46,7 +48,9 @@ function M.git_sync()
     vim.api.nvim_command("Gpush")
 
     -- Restore the original working directory
-    vim.api.nvim_command
+    vim.api.nvim_command('cd ' .. original_dir)
 end
 
+
 return M
+
