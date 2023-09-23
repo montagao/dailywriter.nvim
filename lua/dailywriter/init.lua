@@ -11,11 +11,12 @@ function M.word_count()
 end
 
 function M.open_today()
-    local dir = vim.fn.expand('~/writing/') .. os.date('%Y-%m-%d')
-    vim.fn.mkdir(dir, 'p')
-    local file = dir .. '/writing.txt'
+    local dir = vim.fn.expand('~/writing/')
+    vim.fn.mkdir(dir, 'p')  -- Ensure the ~/writing/ directory exists
+    local file = dir .. os.date('%Y-%m-%d') .. '.txt'
     vim.api.nvim_command('edit ' .. file)
 end
+
 
 
 function M.list_past()
