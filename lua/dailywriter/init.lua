@@ -44,8 +44,8 @@ function M.git_sync()
 
     -- Execute vim-fugitive commands
     vim.api.nvim_command("Gwrite")
-    vim.api.nvim_command("Gcommit -m '" .. commit_msg .. "'")
-    vim.api.nvim_command("Gpush")
+    vim.api.nvim_command("G commit -m '" .. commit_msg .. "'")
+    vim.api.nvim_command("G push")
 
     -- Restore the original working directory
     vim.api.nvim_command('cd ' .. original_dir)
