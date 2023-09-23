@@ -15,6 +15,8 @@ function M.open_today()
     vim.fn.mkdir(dir, 'p') -- Ensure the ~/writing/ directory exists
     local file = dir .. os.date('%Y-%m-%d') .. '.txt'
     vim.api.nvim_command('edit ' .. file)
+    vim.o.wrap = true
+    vim.o.linebreak = true
 end
 
 function M.list_past()
