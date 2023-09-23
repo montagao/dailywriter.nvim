@@ -7,21 +7,19 @@ function M.word_count()
     for _, line in ipairs(lines) do
         count = count + #vim.fn.split(line, '\\W\\+')
     end
-    print(count .. ' words')
+    vim.api.nvim_out_write(count .. ' words\n')
 end
 
 function M.open_today()
     local dir = vim.fn.expand('~/writing/')
-    vim.fn.mkdir(dir, 'p')  -- Ensure the ~/writing/ directory exists
+    vim.fn.mkdir(dir, 'p') -- Ensure the ~/writing/ directory exists
     local file = dir .. os.date('%Y-%m-%d') .. '.txt'
     vim.api.nvim_command('edit ' .. file)
 end
 
-
-
 function M.list_past()
     local dir = vim.fn.expand('~/writing/')
-    require'telescope.builtin'.find_files({
+    require 'telescope.builtin'.find_files({
         prompt_title = '< Past Writings >',
         cwd = dir,
         layout_strategy = 'horizontal',
@@ -30,7 +28,6 @@ function M.list_past()
         },
     })
 end
-
 
 function M.git_sync()
     -- Store the current working directory
@@ -52,6 +49,4 @@ function M.git_sync()
     vim.api.nvim_command('cd ' .. original_dir)
 end
 
-
 return M
-
