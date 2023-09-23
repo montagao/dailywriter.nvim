@@ -1,6 +1,6 @@
 augroup DailyWriter
     autocmd!
-    autocmd CursorMoved,CursorHold,I,TextChanged,TextChangedI * lua require'dailywriter'.word_count()
+    autocmd CursorMoved,CursorHold,TextChanged,TextChangedI * lua require'dailywriter'.word_count()
 augroup END
 
 command! Today lua require'dailywriter'.open_today()
