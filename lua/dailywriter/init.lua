@@ -43,7 +43,7 @@ function M.git_sync()
     local commit_msg = "Daily writing sync: " .. os.date('%Y-%m-%d %H:%M:%S')
 
     -- Execute vim-fugitive commands
-    vim.api.nvim_command("Gwrite")
+    vim.api.nvim_command("G add .")
     vim.api.nvim_command("G commit -m '" .. commit_msg .. "'")
     vim.api.nvim_command("G push")
 
