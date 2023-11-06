@@ -19,6 +19,23 @@ function M.open_today()
     vim.o.linebreak = true
 end
 
+function M.open_yesterday()
+    local dir = vim.fn.expand('~/writing/')
+    vim.fn.mkdir(dir, 'p') -- Ensure the ~/writing/ directory exists
+
+    -- Calculate yesterday's date
+    local time = os.time() - (24 * 60 * 60) -- Subtract 24 hours in seconds
+    local yesterday = os.date('%Y-%m-%d', time)
+
+    -- Construct the filename for yesterday's writing
+    local file = dir .. yesterday .. '.txt'
+    vim.api.nvim_command('edit ' .. file)
+    vim.o.wrap = true
+    vim.o.linebreak = true
+end
+
+
+
 function M.list_past()
     local dir = vim.fn.expand('~/writing/')
     require 'telescope.builtin'.find_files({
