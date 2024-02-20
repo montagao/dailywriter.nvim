@@ -68,4 +68,12 @@ function M.git_sync()
     vim.api.nvim_command('cd ' .. original_dir)
 end
 
+function M.open_seeds()
+    local file = vim.fn.expand('~/writing/seeds.txt')
+    vim.api.nvim_command('edit ' .. file)
+    vim.o.wrap = true
+    vim.o.linebreak = true
+end
+
+
 return M
