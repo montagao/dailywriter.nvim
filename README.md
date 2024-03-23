@@ -24,6 +24,7 @@ This plugin automatically displays the word count of the current buffer whenever
 - `:Today`: Opens today's writing file located in `~/writing/YYYY-MM-DD.txt`.
 - `:Past`: Lists past writing files in `~/writing/` using Telescope.
 - `:GitSync`: Syncs the current buffer to Git.
+- `:Seeds`: Opens your current seeds/ideas for editing/viewing pleasure, defaults to ~/writing/seeds.txt.
 
 ### Auto Commands
 
@@ -36,7 +37,7 @@ The word count feature is enabled by default and updates on the following events
 
 ## Configuration
 
-The plugin automatically configures the autocommands for word count and sets up the `:Today`, `:Past`, and `:GitSync` commands.
+The plugin automatically configures the autocommands for word count and sets up the `:Seeds`, `:Today`, `:Past`, and `:GitSync` commands.
 
 ## Dependencies
 
